@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import random
+import sys
+
+try:
+    max = 6 if len(sys.argv) < 2 else int(sys.argv[1])
+except:
+    print 'Usage: roll [upper_limit]'
+    sys.exit()
+
+if max < 1:
+    print 'Boundary must be >=1 and an integer'
+    sys.exit()
+
+print random.randint(1, max)

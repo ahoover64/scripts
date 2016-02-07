@@ -1,0 +1,17 @@
+#!/usr/bin/python
+
+import time
+import os
+import random
+
+voices = file('/Users/ahoover/dev/scripts/voices.txt', 'r')
+
+voice_list = []
+for line in voices:
+    voice_list.append(line[0:10])
+
+while True:
+    #print "christ"
+    voice = voice_list[random.randint(0, len(voice_list)-1)]
+    os.system('say "christ" --voice=' + voice)
+    time.sleep(.5)

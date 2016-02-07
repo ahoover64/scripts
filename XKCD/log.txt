@@ -1,0 +1,12 @@
+--2015-06-12 14:50:33--  http://imgs.xkcd.com/comics/island_color.jpg
+Resolving imgs.xkcd.com (imgs.xkcd.com)... 23.235.39.67
+Connecting to imgs.xkcd.com (imgs.xkcd.com)|23.235.39.67|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 88284 (86K) [image/jpeg]
+Saving to: ‘island_color.jpg’
+
+     0K .......... .......... .......... .......... .......... 57% 1.18M 0s
+    50K .......... .......... .......... ......               100%  999K=0.08s
+
+2015-06-12 14:50:33 (1.08 MB/s) - ‘island_color.jpg’ saved [88284/88284]
+
