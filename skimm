@@ -1,25 +1,25 @@
 #!/usr/bin/python
-import poplib
-from email import parser
+# This program will open the most recent skimm that there has been
 
-f = file('skimm.html', 'w')
+import os
 
-pop_conn = poplib.POP3_SSL('pop.gmail.com')
-pop_conn.user('ahoover512@gmail.com')
-pop_conn.pass_('Supermac101')
+os.system('cd ~')
+os.system('wget -q http://www.theskimm.com/archive')
 
-# Get messages
-messages = [pop_conn.retr(1)] # latest skimm messages
-#messages = [pop_conn.retr(i) for i in range(1, len(pop_conn.list()[1]) + 1)]
+f = file('archive', 'r')
 
-# Concat message pieces
-messages = ["\n".join(mssg[1]) for mssg in messages]
+state = 0
+url = 'http://www.theskimm.com/'
+for line in f:
+    if state == 0 and  "Newsletter Archive" in line:
+        state = 1
+    elif state == 1:
+        state = 2
+    elif state == 2:
+        url = url + line.split('"')[1]
+        state = 3
+    elif state == 3:
+        break
 
-# Parse message into email object
-messages = [parser.Parser().parsestr(mssg) for mssg in messages]
-
-
-for message in messages:
-    for part in message.walk():
-        f.write(part.get_payload())
-pop_conn.quit()
+os.system('rm archive')
+os.system('open ' + url)
