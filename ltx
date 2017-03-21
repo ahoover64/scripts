@@ -1,0 +1,9 @@
+#!/usr/bin/python
+
+import sys
+import os
+
+fi = str(sys.argv[1])
+fne = os.path.splitext(fi)[0]
+
+os.system("pdflatex " + fi + " > .hidden_file_for_latex && rm " + fne + ".aux " + fne + ".log .hidden_file_for_latex")
