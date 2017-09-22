@@ -4,13 +4,23 @@ import random
 import sys
 
 try:
-    max = 6 if len(sys.argv) < 2 else int(sys.argv[1])
+    sides = 6 if len(sys.argv) < 2 else int(sys.argv[1])
+    num_rolls = 1 if len(sys.argv) < 3 else int(sys.argv[2])
 except:
     print 'Usage: roll [upper_limit]'
     sys.exit()
 
-if max < 1:
+if sides < 1:
     print 'Boundary must be >=1 and an integer'
     sys.exit()
 
-print random.randint(1, max)
+output = ""
+total = 0
+for i in range(num_rolls):
+	r = random.randint(1,sides)
+	output = output + str(r) + " "
+	total = total + r
+print output
+
+if num_rolls > 1:
+	print total

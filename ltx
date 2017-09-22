@@ -4,6 +4,12 @@ import sys
 import os
 
 fi = str(sys.argv[1])
+do_bib = 1 if len(sys.argv) > 2 else 0
 fne = os.path.splitext(fi)[0]
 
+if do_bib is 1:
+    os.system("bibtex " + fne)
+    os.system("bibtex " + fne)
+
 os.system("pdflatex " + fi + " > .hidden_file_for_latex && rm " + fne + ".aux " + fne + ".log .hidden_file_for_latex")
+# os.system("bibtex " + fne)
